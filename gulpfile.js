@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const git = require('gulp-git');
 const { exec } = require('child_process');
 gulp.task('git-pull', function(done) {
-    git.pull('https://github.com/JawadTakiAlden/lmsHOG.git', 'main', function(err) {
+    git.pull('https://github.com/JawadTakiAlden/hadmin.git', 'main', function(err) {
         if (err) return done(err);
         done();
     });
