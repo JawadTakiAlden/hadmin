@@ -53,9 +53,15 @@ const LessionsRenderer = ({ lesions, quizzes }) => {
   };
   return (
     <Box>
-      <LoadingButton  sx={{
-        mt : 2
-      }} loading={reOrderLesion.isPending} loadingPosition="start" variant="outlined" onClick={handleSaveSort}>
+      <LoadingButton
+        sx={{
+          mt: 2,
+        }}
+        loading={reOrderLesion.isPending}
+        loadingPosition="start"
+        variant="outlined"
+        onClick={handleSaveSort}
+      >
         Save New Sort
       </LoadingButton>
       {lesions?.length === 0 && quizzes?.length === 0 && (
@@ -75,6 +81,7 @@ const LessionsRenderer = ({ lesions, quizzes }) => {
               opacity: lesion === draggingItem ? "0.8" : "1",
               border: lesion === hoveredItem ? "1px dashed red" : "none",
               borderRadius: "12px",
+              transition : '0.3s',
             }}
             draggable={true}
             onDragStart={(e) => handleDragStart(e, lesion)}

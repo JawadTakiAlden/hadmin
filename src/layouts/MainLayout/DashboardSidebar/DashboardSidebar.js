@@ -121,11 +121,14 @@ const DashboardSidebar = ({
             marginTop : '10px',
             marginLeft : '5px',
             borderRadius : '20px',
-            px : 1
+            px : 1,
+            "&::-webkit-scrollbar" : {
+              display : 'none'
+            }
           },
         }}
         sx={{
-          display : {md : 'none'}
+          display : {md : 'none'},
         }}
       >
         {drawer}
@@ -142,7 +145,10 @@ const DashboardSidebar = ({
             marginTop : '10px',
             marginLeft : '5px',
             borderRadius : '20px',
-            px : 1
+            px : 1,
+            "&::-webkit-scrollbar" : {
+              display : 'none'
+            }
           
           },
         }}

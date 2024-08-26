@@ -1,8 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+
+const mode = localStorage.getItem('house_of_geniuses_mode')
+
 const initialState = {
   id: "default",
   opened: false,
-  direction : 'ltr'
+  direction : 'ltr',
+  mode : mode || 'light'
 };
 const customizationSlice = createSlice({
   name: "customization",
@@ -16,10 +20,15 @@ const customizationSlice = createSlice({
     },
     SET_DIRECTION : (state , action) => {
       state.direction = action.payload
+    },
+    CHANGE_MODE : (state) => {
+      const mode = state.mode === 'light' ? 'dark' : 'light'
+      state.mode = mode
+      localStorage.setItem('house_of_geniuses_mode' , mode)
     }
   },
 });
 
 export default customizationSlice;
 
-export const { SET_MENU_ITEM, TOGGLE_COLAPSED , SET_DIRECTION } = customizationSlice.actions;
+export const { SET_MENU_ITEM, TOGGLE_COLAPSED , SET_DIRECTION , CHANGE_MODE } = customizationSlice.actions;

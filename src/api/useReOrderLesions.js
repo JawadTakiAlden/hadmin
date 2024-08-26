@@ -6,7 +6,7 @@ const useReOrderLesions = () => {
     const { enqueueSnackbar } = useSnackbar();
     const resetDeviceIDRequest  = (data) => {
         return request({
-            url : `/chapters/changeOrderOfChapters`,
+            url : `/lesions/reOrderLesions`,
             method : 'post',
             data
         })

@@ -6,7 +6,7 @@ import {
   createTheme,
 } from "@mui/material";
 import NavigationOnScroll from "./layouts/NavigationOnScroll/NavigationOnScroll";
-import { Routes, Route, useLocation } from "react-router";
+import { Routes, Route } from "react-router";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -19,10 +19,7 @@ import MainLayout from "./layouts/MainLayout";
 import Dashboard from "./views/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import RTL from "./components/RTL/RTL";
-import { arSA } from "@mui/material/locale";
-import { enUS } from "@mui/material/locale";
 import { primaryThemePalette } from "./themesObjects";
-import { AnimatePresence } from "framer-motion";
 const Login = Loadable(lazy(() => import("./views/auth/Login/Login")));
 const StudentList = Loadable(
   lazy(() => import("./views/pages/student/studentList"))
@@ -84,21 +81,16 @@ const CreateCategroy = Loadable(
 );
 
 function App() {
-  const { direction } = useSelector((state) => state.customization);
+  const { direction , mode } = useSelector((state) => state.customization);
   const themeObject = primaryThemePalette;
   const theme = createTheme(
     {
       direction,
       palette: {
-        mode: "dark",
+        mode: mode,
         background: {
-          // default: "#00001a",
-          // paper : '#00001a'
-          // default : '#aaaaaa',
-          // paper : '#bbbbbb'
-
-          default: themeObject.backgroundDark,
-          paper: themeObject.backgroundDark,
+          default: mode === 'light' ? themeObject.background :  themeObject.backgroundDark,
+          paper: mode === 'light' ? themeObject.background :  themeObject.backgroundDark,
         },
         primary: {
           main: themeObject.primary,
@@ -150,8 +142,7 @@ function App() {
           }
         }
       }
-    },
-    direction === "rtl" ? arSA : enUS
+    }
   );
 
   return (

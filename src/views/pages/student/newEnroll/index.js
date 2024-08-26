@@ -10,7 +10,7 @@ const NewEnroll = () => {
     <CardWrapper>
       <Typography
         sx={{
-          color: "#232323",
+          color: "primary.main",
           fontFamily: "Hacen Tunisia",
           fontSize: "24px",
           fontWeight: "400",

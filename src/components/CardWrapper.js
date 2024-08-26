@@ -7,7 +7,6 @@ const CardWrapper = ({children}) => {
         sx={{
             borderRadius : '15px',
             width : '100%',
-            backgroundColor : '#fff',
             py : 2
         }}
     >

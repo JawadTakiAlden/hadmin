@@ -1,9 +1,18 @@
 import React from "react";
-import { Box, useTheme, IconButton, Select, MenuItem } from "@mui/material";
+import {
+  Box,
+  useTheme,
+  IconButton,
+  Select,
+  MenuItem,
+  Switch,
+} from "@mui/material";
 import { MenuOpen } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { SET_DIRECTION } from "../../../store/slices/customization/customization";
+import { CHANGE_MODE, SET_DIRECTION } from "../../../store/slices/customization/customization";
 import { useTranslation } from "react-i18next";
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 const Header = ({ handleDrawerToggle }) => {
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -36,25 +45,42 @@ const Header = ({ handleDrawerToggle }) => {
           <MenuOpen />
         </IconButton>
       </Box>
-      <Select
+      <Box
         sx={{
-          borderRadius: "30px",
-          width: "100px",
-          height: "40px",
-        }}
-        value={i18n.language}
-        onChange={(e) => {
-          i18n.changeLanguage(e.target.value);
-          const dir = e.target.value === "en" ? "ltr" : "rtl";
-          dispatch(SET_DIRECTION(dir));
-          document.dir = dir;
+          display : 'flex',
+          alignItems : 'center',
+          gap : '20px'
         }}
       >
-        <MenuItem value={"ar"}>
-          {i18n.language === "en" ? "Ar" : "عربي"}
-        </MenuItem>
-        <MenuItem value={"en"}>En</MenuItem>
-      </Select>
+        <IconButton
+          sx={{ ml: 1 }}
+          onClick={() => {
+            dispatch(CHANGE_MODE());
+          }}
+          color="inherit"
+        >
+          {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+        <Select
+          sx={{
+            borderRadius: "30px",
+            width: "100px",
+            height: "40px",
+          }}
+          value={i18n.language}
+          onChange={(e) => {
+            i18n.changeLanguage(e.target.value);
+            const dir = e.target.value === "en" ? "ltr" : "rtl";
+            dispatch(SET_DIRECTION(dir));
+            document.dir = dir;
+          }}
+        >
+          <MenuItem value={"ar"}>
+            {i18n.language === "en" ? "Ar" : "عربي"}
+          </MenuItem>
+          <MenuItem value={"en"}>En</MenuItem>
+        </Select>
+      </Box>
     </Box>
   );
 };

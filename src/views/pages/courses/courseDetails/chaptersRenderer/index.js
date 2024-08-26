@@ -62,6 +62,7 @@ const ChapterRenderer = ({ chapters }) => {
               opacity: chapter === draggingItem ? "0.8" : "1",
               border: chapter === hoveredItem ? "1px dashed red" : "none",
               borderRadius: "12px",
+              transition : '0.3s',
             }}
             draggable={true}
             onDragStart={(e) => handleDragStart(e, chapter)}
