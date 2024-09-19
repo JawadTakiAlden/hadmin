@@ -78,11 +78,11 @@ const AddLesionForm = ({ chapter, handelClose }) => {
       time: 0,
     },
   });
-  const videos = useGetVideos(inputValue ,values.source);
-  
+  const videos = useGetVideos(inputValue, values.source);
+
   useEffect(() => {
-    videos.refetch(inputValue ,values.source)
-  } , [values.source])
+    videos.refetch(inputValue, values.source);
+  }, [values.source]);
 
   const handelRefetchOnSearch = useDebounce(() => {
     videos.refetch();
@@ -132,19 +132,13 @@ const AddLesionForm = ({ chapter, handelClose }) => {
           {values.type === "video" && (
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth>
-                <InputLabel>
-                  {t(
-                    "courses.detaisl.details_tab.chapter_renderer.chapter_card.add_lesion_form.labels.source"
-                  )}
-                </InputLabel>
+                <InputLabel>{t("source")}</InputLabel>
                 <Select
                   value={values.source}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="source"
-                  label={t(
-                    "courses.detaisl.details_tab.chapter_renderer.chapter_card.add_lesion_form.labels.source"
-                  )}
+                  label={t("source")}
                   error={touched.source && errors.source}
                 >
                   {lesionSource.map((source) => (
