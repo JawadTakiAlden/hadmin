@@ -69,7 +69,7 @@ const LesionItem = ({ last, lesion }) => {
       <Box
         sx={{
           py: 2,
-          borderBottom: !last ? "1px solid #CCCCCC" : "none",
+          borderBottom:(theme) =>  !last ? `0.5px solid ${theme.palette.grey[700]}` : "none",
         }}
        
       >
