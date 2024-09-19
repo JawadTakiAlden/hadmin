@@ -80,7 +80,7 @@ const LesionItem = ({ last, lesion }) => {
             justifyContent: "space-between",
           }}
         >
-          <ListItem sx={{ cursor: "pointer" }} onClick={handelContentToggle}>
+          <ListItem sx={{ cursor: "pointer" , width : 'fit-content' }} onClick={handelContentToggle}>
             <ListItemIcon>
               {lesion?.type === "video" ? (
                 <VideoFileOutlined />
