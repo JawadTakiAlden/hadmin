@@ -80,6 +80,9 @@ const AddLesionForm = ({ chapter, handelClose }) => {
   });
   const videos = useGetVideos(inputValue ,values.source);
   
+  useEffect(() => {
+    videos.refetch(inputValue ,values.source)
+  } , [values.source])
 
   const handelRefetchOnSearch = useDebounce(() => {
     videos.refetch();

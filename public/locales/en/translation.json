@@ -264,6 +264,7 @@
                 "type": "Type",
                 "title": "Title",
                 "time": "Estimated Time",
+                "source" : "Source",
                 "link": "Link",
                 "refetch_btn": "Refetch",
                 "file": "Upload File",
