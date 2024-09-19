@@ -95,7 +95,7 @@ const AddLesionForm = ({ chapter, handelClose }) => {
     <Box
       sx={{
         width: "100%",
-        backgroundColor: "white",
+        // backgroundColor: "white",
         borderRadius: "12px",
         p: 2,
         mt: 2,
