@@ -25,8 +25,8 @@ const UpdateQuizForm = ({ quiz }) => {
         my: 3,
         p: 2,
         borderRadius: "12px",
-        backgroundColor: "white",
-        boxShadow: "1px 1px 10px -6px rgba(0,0,0,.4)",
+        // backgroundColor: "white",
+        // boxShadow: "1px 1px 10px -6px rgba(0,0,0,.4)",
       }}
     >
       <Formik

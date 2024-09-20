@@ -125,11 +125,11 @@ function App() {
         MuiDialog : {
           styleOverrides : {
             paper : {
-              backgroundColor : 'transparent',
+              backgroundColor : mode === 'dark' ? 'transparent' : 'white',
               backdropFilter : 'blur(10px)',
               backgroundImage : 'none',
               borderRadius : '20px',
-              boxShadow : '2px 2px 10px -5px #888888'
+              boxShadow : mode === 'dark' && 'inset 0px 0px 15px -5px #fff'
             }
           }
         },
